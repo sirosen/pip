@@ -733,6 +733,16 @@ no_deps: Callable[..., Option] = partial(
     help="Don't install package dependencies.",
 )
 
+dependency_groups: Callable[..., Option] = partial(
+    Option,
+    "--dependency-group",
+    dest="dependency_groups",
+    default=[],
+    action="append",
+    metavar="group",
+    help="Install a named dependency-group from `pyproject.toml` in the current directory.",
+)
+
 ignore_requires_python: Callable[..., Option] = partial(
     Option,
     "--ignore-requires-python",
